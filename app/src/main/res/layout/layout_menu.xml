@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/menu"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/c_blue_1"
+
+        android:translationY="-200dp">
+
+        <com.andexert.library.RippleView
+            android:id="@+id/toCartelera"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:rv_rippleDuration="200">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/c_blue_4"
+                android:padding="8dp"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:id="@+id/imageView5"
+                    android:src="@drawable/menu_cartelera"
+                    android:layout_marginLeft="120dp"
+                    android:layout_marginRight="12dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="cartelera"
+                    android:id="@+id/textView"
+                    android:textColor="@color/c_white"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </com.andexert.library.RippleView>
+
+        <com.andexert.library.RippleView
+            android:id="@+id/toTalleres"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:rv_rippleDuration="200">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/c_blue_3"
+                android:padding="8dp"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:id="@+id/imageView5"
+                    android:src="@drawable/menu_talleres"
+                    android:layout_marginLeft="120dp"
+                    android:layout_marginRight="12dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="talleres"
+                    android:id="@+id/textView"
+                    android:textColor="@color/c_white"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </com.andexert.library.RippleView>
+
+        <com.andexert.library.RippleView
+            android:id="@+id/toStreaming"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:rv_rippleDuration="200">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/c_blue_22"
+                android:padding="8dp"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:id="@+id/imageView5"
+                    android:src="@drawable/menu_streaming"
+                    android:layout_marginLeft="120dp"
+                    android:layout_marginRight="12dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="streaming"
+                    android:id="@+id/textView"
+                    android:textColor="@color/c_white"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </com.andexert.library.RippleView>
+
+        <com.andexert.library.RippleView
+            android:id="@+id/toProyectos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:rv_rippleDuration="200">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/c_blue_1"
+                android:padding="8dp"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:id="@+id/imageView5"
+                    android:src="@drawable/menu_proyectos"
+                    android:layout_marginLeft="120dp"
+                    android:layout_marginRight="12dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="proyectos"
+                    android:id="@+id/textView"
+                    android:textColor="@color/c_white"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </com.andexert.library.RippleView>
+
+
+
+    </LinearLayout>
+</LinearLayout>

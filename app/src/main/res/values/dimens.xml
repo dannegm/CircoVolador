@@ -2,4 +2,36 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!-- Medidas standard -->
+
+    <dimen name="actionbar_height">56dp</dimen>
+
+    <dimen name="actionbar_title_margiLeft">8dp</dimen>
+    <dimen name="actionbar_title_textSize">32sp</dimen>
+
+    <dimen name="actionbar_logo_width">96dp</dimen>
+
+    <dimen name="actionbar_menubutton_padding">12dp</dimen>
+    <dimen name="actionbar_menubutton_boxsize">24dp</dimen>
+
+    <dimen name="circleindicator_height">40dp</dimen>
+
+    <dimen name="infobutton_padding">12dp</dimen>
+    <dimen name="infobutton_icon_boxsize">24dp</dimen>
+    <dimen name="infobutton_icon_marginRight">8dp</dimen>
+    <dimen name="infobutton_text_textSize">14sp</dimen>
+
+    <dimen name="videoplayer_boxsize">1dp</dimen>
+
+    <dimen name="cvr_upper_textSize">64sp</dimen>
+    <dimen name="cvr_upper_padding">16sp</dimen>
+
+    <dimen name="bluecircle_boxsize">220dp</dimen>
+
+    <dimen name="trackinfo_padding">16dp</dimen>
+    <dimen name="trackinfo_nowPlaying_textSize">18sp</dimen>
+    <dimen name="trackinfo_song_textSize">24sp</dimen>
+
+    <dimen name="playPuaseButton_boxsize">72dp</dimen>
 </resources>

@@ -5,8 +5,9 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="TextViewCustomFont">
-        <item name="fontPath">fonts/sixcaps.ttf</item>
+    <style name="NoActionBar" parent="@android:style/Theme.Holo.Light">
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
     </style>
 
 </resources>

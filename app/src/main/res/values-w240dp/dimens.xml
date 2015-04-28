@@ -1,0 +1,16 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!-- Medidas Small -->
+
+    <!--
+    <dimen name="cvr_upper_padding">16sp</dimen>
+    <dimen name="cvr_upper_textSize">52sp</dimen>
+    <dimen name="bluecircle_boxsize">180dp</dimen>
+    <dimen name="trackinfo_nowPlaying_textSize">13sp</dimen>
+    <dimen name="trackinfo_song_textSize">18sp</dimen>
+    <dimen name="playPuaseButton_boxsize">64dp</dimen>
+    -->
+</resources>

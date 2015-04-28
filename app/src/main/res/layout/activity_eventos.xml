@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.amb.circovolador.activities.Eventos"
-    android:windowTranslucentStatus="true"
     android:background="@color/c_blue">
 
     <LinearLayout
@@ -25,21 +24,21 @@
             <RelativeLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
+                android:layout_height="@dimen/actionbar_height"
                 android:layout_gravity="center_horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Cartelera"
+                    android:text="@string/title_activity_eventos"
                     android:id="@+id/TitleBar"
                     android:textColor="@color/c_white"
-                    android:paddingLeft="8dp"
+                    android:paddingLeft="@dimen/actionbar_title_margiLeft"
                     android:layout_centerVertical="true"
-                    android:textSize="32sp" />
+                    android:textSize="@dimen/actionbar_title_textSize" />
 
                 <ImageView
-                    android:layout_width="96dp"
+                    android:layout_width="@dimen/actionbar_logo_width"
                     android:layout_height="wrap_content"
                     android:id="@+id/Logo"
                     android:src="@drawable/logo"
@@ -51,14 +50,14 @@
                     android:id="@+id/ContextMenu"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:padding="12dp"
+                    android:padding="@dimen/actionbar_menubutton_padding"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentEnd="true"
                     app:rv_rippleDuration="200">
 
                     <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
+                        android:layout_width="@dimen/actionbar_menubutton_boxsize"
+                        android:layout_height="@dimen/actionbar_menubutton_boxsize"
                         android:layout_centerVertical="true"
                         android:src="@drawable/menu" />
 
@@ -87,11 +86,21 @@
 
             <me.relex.circleindicator.CircleIndicator
                 android:layout_width="fill_parent"
-                android:layout_height="40dp"
+                android:layout_height="@dimen/circleindicator_height"
                 android:id="@+id/circleIndicator"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
+                android:layout_alignParentStart="true"
+                app:ci_drawable="@drawable/oval_blue"
+                app:ci_drawable_unselected="@drawable/oval_white"
+                app:ci_animator="@animator/dots_anim"
+                app:ci_animator_reverse="@animator/dots_anim_reverse"
+                app:ci_margin="2dp"
+                />
+
+
+
+            <include layout="@layout/layout_menu" />
 
         </RelativeLayout>
 

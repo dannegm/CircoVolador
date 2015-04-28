@@ -10,4 +10,9 @@
     <color name="c_blue_80">#cc185c75</color>
     <color name="c_white_30">#4cffffff</color>
     <color name="c_black_68">#9a000000</color>
+
+    <color name="c_blue_1">#197A9E</color>
+    <color name="c_blue_22">#166C8D</color>
+    <color name="c_blue_3">#135F7B</color>
+    <color name="c_blue_4">#115169</color>
 </resources>
