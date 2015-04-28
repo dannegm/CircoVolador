@@ -1,0 +1,35 @@
+package com.amb.circovolador.Utils;
+
+import android.content.Context;
+import android.content.SharedPreferences;
+
+/**
+ * Created by ambmultimedia on 27/04/15.
+ */
+public class Config {
+    private final String SHARED_PREFS_FILE = "CVRPrefabs";
+
+    private Context mContext;
+
+    public Config (Context context){
+        mContext = context;
+    }
+    private SharedPreferences getSettings(){
+        return mContext.getSharedPreferences(SHARED_PREFS_FILE, 0);
+    }
+
+    public String get (String key, String value) {
+        return getSettings().getString(key, value);
+    }
+    public void set (String key, String value) {
+        SharedPreferences.Editor editor = getSettings().edit();
+        editor.putString(key, value);
+        editor.commit();
+    }
+
+    public void clear () {
+        SharedPreferences.Editor editor = getSettings().edit();
+        editor.clear();
+        editor.commit();
+    }
+}

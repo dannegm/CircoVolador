@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="c_blue">#0b3646</color>
+    <color name="c_white">#ffffff</color>
+    <color name="c_black">#000000</color>
+
+    <color name="c_cyan">#009bdb</color>
+    <color name="c_blue_text">#50c5e6</color>
+
+    <color name="c_blue_80">#cc185c75</color>
+    <color name="c_white_30">#4cffffff</color>
+    <color name="c_black_68">#9a000000</color>
+</resources>

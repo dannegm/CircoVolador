@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/imageEvent"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:scaleType="centerCrop"
+        android:background="@color/c_black"
+        android:src="@drawable/bg_stream" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:weightSum="2"
+        android:gravity="center"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="64dp"
+        android:id="@+id/linearLayout">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/c_cyan"
+            android:padding="8dp"
+            android:gravity="center"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Precio: $000"
+                android:id="@+id/priceEvent"
+                android:textColor="@color/c_black"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/c_blue"
+            android:padding="8dp"
+            android:gravity="center"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:id="@+id/imageView3"
+                android:src="@drawable/btn_ticket"
+                android:layout_marginRight="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Comprar"
+                android:id="@+id/textView2"
+                android:textColor="@color/c_white"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0000-00-00"
+        android:id="@+id/dateEvent"
+        android:layout_above="@+id/linearLayout"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/c_blue_text"
+        android:textSize="36sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Evento"
+        android:id="@+id/textEvent"
+        android:layout_above="@+id/dateEvent"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/c_white"
+        android:textSize="42sp"
+        android:textAlignment="center"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:gravity="center" />
+
+</RelativeLayout>

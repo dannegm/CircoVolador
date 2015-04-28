@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Circo Volador</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_talleres">Talleres</string>
+    <string name="title_activity_streaming">Streaming</string>
+    <string name="title_activity_eventos">Eventos</string>
+    <string name="title_activity_proyectos">Proyectos</string>
+</resources>
