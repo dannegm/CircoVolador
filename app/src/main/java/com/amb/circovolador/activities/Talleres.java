@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.amb.circovolador.R;
 import com.amb.circovolador.Utils.Config;
+import com.amb.circovolador.Utils.Menu;
 import com.amb.circovolador.fragments.Taller;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -28,6 +29,7 @@ public class Talleres extends FragmentActivity {
     Context ctx;
     Activity atx;
     Config config;
+    Menu menu;
 
     ViewPager tallerePager;
 
@@ -74,6 +76,16 @@ public class Talleres extends FragmentActivity {
                 Toast.makeText(ctx, msg, Toast.LENGTH_LONG).show();
             }
         });
+
+        menu = new Menu(this, this);
+        menu.Navigation();
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (menu.isOpen()) {
+            menu.close();
+        }
     }
 
     class TallerPagerApadter extends FragmentPagerAdapter {

@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/c_black_68"
+        android:id="@+id/overlive"></RelativeLayout>
 
     <LinearLayout
         android:id="@+id/menu"
@@ -31,7 +37,7 @@
                 <ImageView
                     android:layout_width="28dp"
                     android:layout_height="28dp"
-                    android:id="@+id/imageView5"
+                    android:id="@+id/iconEventos"
                     android:src="@drawable/menu_cartelera"
                     android:layout_marginLeft="120dp"
                     android:layout_marginRight="12dp" />
@@ -40,7 +46,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="cartelera"
-                    android:id="@+id/textView"
                     android:textColor="@color/c_white"
                     android:textSize="16sp" />
             </LinearLayout>
@@ -62,7 +67,7 @@
                 <ImageView
                     android:layout_width="28dp"
                     android:layout_height="28dp"
-                    android:id="@+id/imageView5"
+                    android:id="@+id/iconTalleres"
                     android:src="@drawable/menu_talleres"
                     android:layout_marginLeft="120dp"
                     android:layout_marginRight="12dp" />
@@ -71,7 +76,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="talleres"
-                    android:id="@+id/textView"
                     android:textColor="@color/c_white"
                     android:textSize="16sp" />
             </LinearLayout>
@@ -93,7 +97,7 @@
                 <ImageView
                     android:layout_width="28dp"
                     android:layout_height="28dp"
-                    android:id="@+id/imageView5"
+                    android:id="@+id/iconStreaming"
                     android:src="@drawable/menu_streaming"
                     android:layout_marginLeft="120dp"
                     android:layout_marginRight="12dp" />
@@ -102,7 +106,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="streaming"
-                    android:id="@+id/textView"
                     android:textColor="@color/c_white"
                     android:textSize="16sp" />
             </LinearLayout>
@@ -124,7 +127,7 @@
                 <ImageView
                     android:layout_width="28dp"
                     android:layout_height="28dp"
-                    android:id="@+id/imageView5"
+                    android:id="@+id/iconProyectos"
                     android:src="@drawable/menu_proyectos"
                     android:layout_marginLeft="120dp"
                     android:layout_marginRight="12dp" />
@@ -133,7 +136,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="proyectos"
-                    android:id="@+id/textView"
                     android:textColor="@color/c_white"
                     android:textSize="16sp" />
             </LinearLayout>
@@ -142,4 +144,5 @@
 
 
     </LinearLayout>
-</LinearLayout>
+
+</RelativeLayout>

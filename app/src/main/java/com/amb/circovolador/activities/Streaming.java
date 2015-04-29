@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.amb.circovolador.R;
 import com.amb.circovolador.Utils.Config;
+import com.amb.circovolador.Utils.Menu;
 import com.amb.circovolador.customViews.CustomVideoView;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -27,6 +28,8 @@ public class Streaming extends Activity {
     Context ctx;
     Activity atx;
     Config config;
+    Menu menu;
+
     AsyncHttpClient client;
     String hostname;
 
@@ -83,6 +86,9 @@ public class Streaming extends Activity {
                 Toast.makeText(ctx, msg, Toast.LENGTH_LONG).show();
             }
         });
+
+        menu = new Menu(this, this);
+        menu.Navigation();
     }
 
     public void makeStream (Uri stream) {
@@ -117,7 +123,6 @@ public class Streaming extends Activity {
         player.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
             @Override
             public void onPrepared(MediaPlayer mp) {
-                Toast.makeText(ctx, getResources().getString(R.string.loading_stream), Toast.LENGTH_SHORT).show();
             }
         });
         player.setOnErrorListener(new MediaPlayer.OnErrorListener() {
@@ -133,13 +138,14 @@ public class Streaming extends Activity {
         final Handler h = new Handler();
         h.postDelayed(new Runnable() {
             private long time = 0;
+
             @Override
             public void run() {
                 if (!player.isPlaying()) {
                     loadSong();
                 }
                 time += 1000;
-                h.postDelayed(this, 1000);
+                h.postDelayed(this, 15000);
             }
         }, 1000);
     }
@@ -149,8 +155,8 @@ public class Streaming extends Activity {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 try {
-                    textSong.setText( response.getString("song") );
-                } catch (JSONException e) {}
+                    textSong.setText(response.getString("song"));
+                } catch (JSONException e) { }
             }
 
             @Override
@@ -159,5 +165,12 @@ public class Streaming extends Activity {
                 textSong.setText(getResources().getString(R.string.cvr_lower));
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (menu.isOpen()) {
+            menu.close();
+        }
     }
 }

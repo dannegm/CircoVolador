@@ -130,6 +130,8 @@
             </LinearLayout>
             </com.andexert.library.RippleView>
 
+            <include layout="@layout/layout_menu" />
+
         </RelativeLayout>
 
     </LinearLayout>
