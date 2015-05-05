@@ -13,7 +13,6 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true">
 
-
         <com.h6ah4i.android.materialshadowninepatch.MaterialShadowContainerView
             android:id="@+id/shadow_item_container"
             android:layout_width="match_parent"
@@ -77,6 +76,27 @@
                 android:src="@drawable/bg_stream"
                 android:scaleType="centerCrop" />
 
+            <com.skyfishjy.library.RippleBackground
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/wireSound"
+                app:rb_color="#cc185c75"
+                app:rb_radius="32dp"
+                app:rb_rippleAmount="4"
+                app:rb_duration="3000"
+                app:rb_scale="6">
+            </com.skyfishjy.library.RippleBackground>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/empty_text"
+                android:id="@+id/textEmpty"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/c_white"
+                android:textSize="22sp" />
+
             <android.support.v4.view.ViewPager
                 android:id="@+id/eventsPager"
                 android:layout_width="match_parent"
@@ -102,7 +122,15 @@
 
             <include layout="@layout/layout_menu" />
 
+
         </RelativeLayout>
 
     </LinearLayout>
+
+    <View
+        android:id="@+id/touchListener"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/menu_toucharea_height"
+        android:layout_marginLeft="42dp"
+        android:layout_marginRight="42dp" />
 </RelativeLayout>

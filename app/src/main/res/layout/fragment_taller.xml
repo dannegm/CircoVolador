@@ -19,7 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="220dp"
         app:shadowTranslationZ="2dp"
-        app:shadowElevation="8dp"
+        app:shadowElevation="4dp"
         android:layout_marginTop="56dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"

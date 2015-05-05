@@ -5,17 +5,21 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.amb.circovolador.R;
 import com.amb.circovolador.activities.Eventos;
+import com.amb.circovolador.activities.Proyectos;
 import com.amb.circovolador.activities.Streaming;
 import com.amb.circovolador.activities.Talleres;
 import com.andexert.library.RippleView;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
+
+import in.championswimmer.sfg.lib.SimpleFingerGestures;
 
 /**
  * Created by ambmultimedia on 28/04/15.
@@ -34,15 +38,14 @@ public class Menu {
     LinearLayout menu;
     RelativeLayout overlive;
 
-
-    public Menu (Context ctx, Activity atx) {
+    public Menu (Context ctx, Activity atx, View touchListener) {
         this.ctx = ctx;
         this.atx = atx;
 
-        init();
+        init(touchListener);
     }
 
-    public void init () {
+    public void init (View touchListener) {
         menu = (LinearLayout) atx.findViewById(R.id.menu);
         overlive = (RelativeLayout) atx.findViewById(R.id.overlive);
         overlive.setEnabled(false);
@@ -73,6 +76,35 @@ public class Menu {
                 }
             }
         });
+
+        SimpleFingerGestures touchEvents = new SimpleFingerGestures();
+        touchEvents.setConsumeTouchEvents(true);
+        touchEvents.setOnFingerGestureListener(new SimpleFingerGestures.OnFingerGestureListener() {
+            @Override
+            public boolean onSwipeUp(int fingers, long gestureDuration) {
+                close();
+                return false;
+            }
+
+            @Override
+            public boolean onSwipeDown(int fingers, long gestureDuration) {
+                open();
+                return false;
+            }
+
+            @Override
+            public boolean onSwipeLeft(int i, long l) { return false; }
+
+            @Override
+            public boolean onSwipeRight(int i, long l) { return false; }
+
+            @Override
+            public boolean onPinch(int i, long l) { return false; }
+
+            @Override
+            public boolean onUnpinch(int i, long l) { return false; }
+        });
+        touchListener.setOnTouchListener(touchEvents);
     }
 
     private void changeActivity (Class actv) {
@@ -102,6 +134,12 @@ public class Menu {
             @Override
             public void onClick(View v) {
                 changeActivity(Streaming.class);
+            }
+        });
+        toProyectos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                changeActivity(Proyectos.class);
             }
         });
     }

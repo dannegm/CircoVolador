@@ -46,7 +46,6 @@ public class Streaming extends Activity {
 
         ctx = this;
         atx = this;
-        config = new Config(ctx);
         client = new AsyncHttpClient();
 
         hostname = getResources().getString(R.string.hostname);
@@ -87,7 +86,8 @@ public class Streaming extends Activity {
             }
         });
 
-        menu = new Menu(this, this);
+        View touchListener = findViewById(R.id.touchListener);
+        menu = new Menu(this, this, touchListener);
         menu.Navigation();
     }
 

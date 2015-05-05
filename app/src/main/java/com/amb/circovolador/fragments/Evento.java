@@ -24,15 +24,11 @@ import org.json.JSONObject;
 @SuppressLint("ValidFragment")
 public class Evento extends Fragment {
     Context ctx;
-    Activity atx;
-    Config config;
     JSONArray data;
     int position;
 
-    public Evento (Context _ctx, Activity _atx, int pos, JSONArray obj) {
+    public Evento (Context _ctx, int pos, JSONArray obj) {
         ctx = _ctx;
-        atx = _atx;
-        config = new Config(ctx);
         data = obj;
         position = pos;
     }

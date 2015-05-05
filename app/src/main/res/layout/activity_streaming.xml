@@ -13,8 +13,6 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true">
 
-
-
         <com.h6ah4i.android.materialshadowninepatch.MaterialShadowContainerView
             android:id="@+id/shadow_item_container"
             android:layout_width="match_parent"
@@ -168,4 +166,11 @@
         </RelativeLayout>
 
     </LinearLayout>
+
+    <View
+        android:id="@+id/touchListener"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/menu_toucharea_height"
+        android:layout_marginLeft="42dp"
+        android:layout_marginRight="42dp" />
 </RelativeLayout>

@@ -3,21 +3,23 @@ package com.amb.circovolador.activities;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Typeface;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.amb.circovolador.R;
-import com.amb.circovolador.Utils.Config;
 import com.amb.circovolador.Utils.Menu;
 import com.amb.circovolador.fragments.Taller;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
+import com.skyfishjy.library.RippleBackground;
 import com.xgc1986.parallaxPagerTransformer.ParallaxPagerTransformer;
 
 import org.apache.http.Header;
@@ -28,7 +30,6 @@ import me.relex.circleindicator.CircleIndicator;
 public class Talleres extends FragmentActivity {
     Context ctx;
     Activity atx;
-    Config config;
     Menu menu;
 
     ViewPager tallerePager;
@@ -40,7 +41,6 @@ public class Talleres extends FragmentActivity {
 
         ctx = this;
         atx = this;
-        config = new Config(ctx);
 
         final FragmentManager sfm = getSupportFragmentManager();
 
@@ -53,20 +53,32 @@ public class Talleres extends FragmentActivity {
         TextView textInfo = (TextView) findViewById(R.id.textInfo);
         textInfo.setTypeface(varelaround);
 
+
+        final View textEmpty = findViewById(R.id.textEmpty);
+        textEmpty.setVisibility(View.INVISIBLE);
+
+        final RippleBackground rippleBackground = (RippleBackground) findViewById(R.id.wireSound);
+        rippleBackground.startRippleAnimation();
+
         String hostname = getResources().getString(R.string.hostname);
-        AsyncHttpClient client = new AsyncHttpClient();
+        final AsyncHttpClient client = new AsyncHttpClient();
         client.get(hostname + "/talleres.json", new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
-                tallerePager = (ViewPager) findViewById(R.id.tallerPager);
-                tallerePager.setAdapter(new TallerPagerApadter(ctx, sfm, response));
+                rippleBackground.stopRippleAnimation();
+                if (response.length() != 0) {
+                    tallerePager = (ViewPager) findViewById(R.id.tallerPager);
+                    tallerePager.setAdapter(new TallerPagerApadter(ctx, sfm, response));
 
-                ParallaxPagerTransformer parallax = new ParallaxPagerTransformer(R.id.bgBlur);
-                parallax.setSpeed(0.5f);
-                tallerePager.setPageTransformer(false, parallax);
+                    ParallaxPagerTransformer parallax = new ParallaxPagerTransformer(R.id.bgBlur);
+                    parallax.setSpeed(0.5f);
+                    tallerePager.setPageTransformer(false, parallax);
 
-                CircleIndicator circleIndicator = (CircleIndicator) findViewById(R.id.circleIndicator);
-                circleIndicator.setViewPager(tallerePager);
+                    CircleIndicator circleIndicator = (CircleIndicator) findViewById(R.id.circleIndicator);
+                    circleIndicator.setViewPager(tallerePager);
+                } else {
+                    textEmpty.setVisibility(View.VISIBLE);
+                }
             }
 
             @Override
@@ -74,10 +86,25 @@ public class Talleres extends FragmentActivity {
                 super.onFailure(statusCode, headers, responseString, e);
                 String msg = "[" + statusCode + "|c/talleres] " + e.getMessage();
                 Toast.makeText(ctx, msg, Toast.LENGTH_LONG).show();
+
+                rippleBackground.stopRippleAnimation();
+                textEmpty.setVisibility(View.VISIBLE);
             }
         });
 
-        menu = new Menu(this, this);
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                client.cancelAllRequests(true);
+
+                rippleBackground.stopRippleAnimation();
+                textEmpty.setVisibility(View.VISIBLE);
+            }
+        }, 60 * 1000);
+
+        View touchListener = findViewById(R.id.touchListener);
+        menu = new Menu(this, this, touchListener);
         menu.Navigation();
     }
 
@@ -98,7 +125,7 @@ public class Talleres extends FragmentActivity {
             this.data = data;
         }
         public Fragment getItem (int position) {
-            Taller taller = new Taller (superCtx, atx, position, data);
+            Taller taller = new Taller (superCtx, position, data);
             return taller;
         }
 

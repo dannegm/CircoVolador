@@ -6,6 +6,7 @@
     <!-- Medidas standard -->
 
     <dimen name="actionbar_height">56dp</dimen>
+    <dimen name="menu_toucharea_height">64dp</dimen>
 
     <dimen name="actionbar_title_margiLeft">8dp</dimen>
     <dimen name="actionbar_title_textSize">32sp</dimen>
