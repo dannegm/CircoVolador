@@ -118,9 +118,42 @@
                 app:ci_margin="2dp"
                 />
 
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:weightSum="2"
+                android:gravity="center"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="32dp"
+                android:layout_marginBottom="40dp"
+                android:id="@+id/linearLayout">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_weight="1">
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:padding="8dp"
+                    android:id="@+id/popEvento"
+                    android:gravity="center"
+                    android:layout_weight="1">
+                </LinearLayout>
+            </LinearLayout>
+
 
 
             <include layout="@layout/layout_menu" />
+            <include layout="@layout/popup_cartelera" />
 
 
         </RelativeLayout>

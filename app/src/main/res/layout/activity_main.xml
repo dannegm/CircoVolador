@@ -21,20 +21,22 @@
             android:layout_margin="32dp"
             android:id="@+id/container">
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:id="@+id/imageView"
-                android:src="@drawable/cv_logo_white"/>
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/cv_upper"
                 android:id="@+id/cvtxt"
                 android:textColor="@color/c_white"
-                android:textSize="22sp"
-                android:layout_marginBottom="32dp" />
+                android:textSize="28sp"
+                android:layout_alignTop="@+id/container"
+                android:layout_centerHorizontal="true" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:id="@+id/imageView"
+                android:src="@drawable/cv_logo_white"/>
+
         </LinearLayout>
 
     </RelativeLayout>

@@ -1,5 +1,6 @@
 package com.amb.circovolador.fragments;
 
+import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.graphics.Typeface;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 
 import com.amb.circovolador.R;
 import com.amb.circovolador.Utils.Config;
+import com.h6ah4i.android.materialshadowninepatch.MaterialShadowContainerView;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;

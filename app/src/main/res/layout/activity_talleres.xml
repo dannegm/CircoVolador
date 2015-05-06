@@ -124,6 +124,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
+                android:id="@+id/popTaller"
                 app:rv_rippleDuration="200">
             <LinearLayout
                 android:orientation="horizontal"
@@ -151,6 +152,7 @@
             </com.andexert.library.RippleView>
 
             <include layout="@layout/layout_menu" />
+            <include layout="@layout/popup_talleres" />
 
         </RelativeLayout>
 

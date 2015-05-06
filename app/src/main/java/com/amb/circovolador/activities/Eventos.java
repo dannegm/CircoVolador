@@ -1,5 +1,7 @@
 package com.amb.circovolador.activities;
 
+import android.animation.Animator;
+import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.AssetManager;
@@ -15,12 +17,16 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.amb.circovolador.R;
 import com.amb.circovolador.Utils.Menu;
 import com.amb.circovolador.fragments.Evento;
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
+import com.h6ah4i.android.materialshadowninepatch.MaterialShadowContainerView;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.skyfishjy.library.RippleBackground;
@@ -28,6 +34,9 @@ import com.xgc1986.parallaxPagerTransformer.ParallaxPagerTransformer;
 
 import org.apache.http.Header;
 import org.json.JSONArray;
+import org.w3c.dom.Text;
+
+import java.util.ArrayList;
 
 import me.relex.circleindicator.CircleIndicator;
 
@@ -106,6 +115,36 @@ public class Eventos extends FragmentActivity {
         View touchListener = findViewById(R.id.touchListener);
         menu = new Menu(this, this, touchListener);
         menu.Navigation();
+
+        Typeface varelaround = Typeface.createFromAsset(ctx.getAssets(), "fonts/varelaround_regular.ttf");
+        final MaterialShadowContainerView popupEventos = (MaterialShadowContainerView) findViewById(R.id.popupEventos);
+        for( int i = 0; i < popupEventos.getChildCount(); i++ ) {
+            if (popupEventos.getChildAt(i) instanceof TextView) {
+                TextView textPop = (TextView) popupEventos.getChildAt(i);
+                textPop.setTypeface(varelaround);
+            }
+        }
+
+        TextView textTitle = (TextView) findViewById(R.id.textTitle);
+        textTitle.setTypeface(sixcaps);
+
+        View popEvento = findViewById(R.id.popEvento);
+        popEvento.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                YoYo.with(Techniques.BounceInUp)
+                        .duration(300)
+                        .playOn(popupEventos);
+            }
+        });
+        popupEventos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                YoYo.with(Techniques.SlideOutDown)
+                        .duration(200)
+                        .playOn(popupEventos);
+            }
+        });
     }
 
     @Override

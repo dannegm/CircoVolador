@@ -17,6 +17,9 @@ import android.widget.Toast;
 import com.amb.circovolador.R;
 import com.amb.circovolador.Utils.Menu;
 import com.amb.circovolador.fragments.Taller;
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
+import com.h6ah4i.android.materialshadowninepatch.MaterialShadowContainerView;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.skyfishjy.library.RippleBackground;
@@ -106,6 +109,34 @@ public class Talleres extends FragmentActivity {
         View touchListener = findViewById(R.id.touchListener);
         menu = new Menu(this, this, touchListener);
         menu.Navigation();
+        final MaterialShadowContainerView popupEventos = (MaterialShadowContainerView) findViewById(R.id.popupEventos);
+        for( int i = 0; i < popupEventos.getChildCount(); i++ ) {
+            if (popupEventos.getChildAt(i) instanceof TextView) {
+                TextView textPop = (TextView) popupEventos.getChildAt(i);
+                textPop.setTypeface(varelaround);
+            }
+        }
+
+        TextView textTitle = (TextView) findViewById(R.id.textTitle);
+        textTitle.setTypeface(sixcaps);
+
+        View popTaller = findViewById(R.id.popTaller);
+        popTaller.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                YoYo.with(Techniques.BounceInUp)
+                        .duration(300)
+                        .playOn(popupEventos);
+            }
+        });
+        popupEventos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                YoYo.with(Techniques.SlideOutDown)
+                        .duration(200)
+                        .playOn(popupEventos);
+            }
+        });
     }
 
     @Override
