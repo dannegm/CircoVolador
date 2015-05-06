@@ -13,6 +13,7 @@
     <string name="title_activity_eventos">Cartelera</string>
     <string name="title_activity_proyectos">Proyectos</string>
 
+    <string name="cv_upper">CIRCO VOLADOR</string>
     <string name="cvr_upper">CIRCO VOLADOR RADIO</string>
     <string name="cvr_lower">Circo Volador Radio</string>
     <string name="info_upper">INFORMACIÓN</string>

@@ -18,6 +18,7 @@ import com.amb.circovolador.activities.Talleres;
 import com.andexert.library.RippleView;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
+import com.nineoldandroids.animation.Animator;
 
 import in.championswimmer.sfg.lib.SimpleFingerGestures;
 
@@ -149,11 +150,21 @@ public class Menu {
         anim_open.setDuration(200);
         anim_open.start();
         openMenu = true;
-
-        overlive.setEnabled(true);
-        overlive.setVisibility(View.VISIBLE);
         YoYo.with(Techniques.FadeIn)
                 .duration(200)
+                .withListener(new Animator.AnimatorListener() {
+                    @Override
+                    public void onAnimationStart(Animator animation) { }
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        overlive.setEnabled(true);
+                        overlive.setVisibility(View.VISIBLE);
+                    }
+                    @Override
+                    public void onAnimationCancel(Animator animation) { }
+                    @Override
+                    public void onAnimationRepeat(Animator animation) { }
+                })
                 .playOn(overlive);
 
         YoYo.with(Techniques.SlideInDown)
