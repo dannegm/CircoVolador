@@ -64,7 +64,7 @@ public class Taller extends Fragment {
             textName.setTypeface(sixcaps);
 
             TextView textDescription = (TextView) layout.findViewById(R.id.textDescription);
-            textDescription.setText(taller.getString("title"));
+            textDescription.setText(taller.getString("content"));
             textDescription.setTypeface(varelaround);
 
             ListView listHorarios = (ListView) layout.findViewById(R.id.listHorarios);

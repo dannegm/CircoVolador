@@ -143,6 +143,9 @@ public class Talleres extends FragmentActivity {
     public void onBackPressed() {
         if (menu.isOpen()) {
             menu.close();
+        } else {
+            super.onBackPressed();
+            atx.overridePendingTransition(R.animator.transition_in, R.animator.transition_out);
         }
     }
 

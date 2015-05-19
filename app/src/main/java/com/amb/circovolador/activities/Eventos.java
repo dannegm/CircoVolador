@@ -1,14 +1,9 @@
 package com.amb.circovolador.activities;
 
-import android.animation.Animator;
-import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.content.Context;
-import android.content.res.AssetManager;
-import android.graphics.Bitmap;
+import android.content.Intent;
 import android.graphics.Typeface;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -17,7 +12,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,9 +28,6 @@ import com.xgc1986.parallaxPagerTransformer.ParallaxPagerTransformer;
 
 import org.apache.http.Header;
 import org.json.JSONArray;
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
 
 import me.relex.circleindicator.CircleIndicator;
 
@@ -147,10 +138,21 @@ public class Eventos extends FragmentActivity {
         });
     }
 
+    private static long back_presed;
     @Override
     public void onBackPressed() {
         if (menu.isOpen()) {
             menu.close();
+        } else {
+            if (back_presed + 2000 > System.currentTimeMillis()) {
+                Intent intent = new Intent(Intent.ACTION_MAIN);
+                intent.addCategory(Intent.CATEGORY_HOME);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            } else {
+                Toast.makeText(ctx, "Presiona de nuevo para salir", Toast.LENGTH_SHORT).show();
+            }
+            back_presed = System.currentTimeMillis();
         }
     }
 

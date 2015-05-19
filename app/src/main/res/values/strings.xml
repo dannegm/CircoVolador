@@ -5,7 +5,7 @@
     <string name="action_settings">Settings</string>
 
     <string name="hostname">http://circovolador.dnn.im/api/v2</string>
-    <string name="fbalbums">http://graph.facebook.com/1407213609491588?fields=albums.fields(description,cover_photo,name,photos)</string>
+    <string name="fbalbums">http://graph.facebook.com/1407213609491588?fields=albums.fields(name,description,picture,photos)</string>
     <string name="fbphoto">http://graph.facebook.com/__photoID__/picture</string>
 
     <string name="title_activity_talleres">Talleres</string>

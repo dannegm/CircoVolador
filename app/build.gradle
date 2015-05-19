@@ -8,8 +8,8 @@ android {
         applicationId "com.amb.circovolador"
         minSdkVersion 14
         targetSdkVersion 21
-        versionCode 14
-        versionName "3.2.14"
+        versionCode 16
+        versionName "3.2.16"
     }
     buildTypes {
         release {

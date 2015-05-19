@@ -55,17 +55,10 @@ public class ThumbPicture extends BaseAdapter {
 
                 JSONObject photo = photos.getJSONObject(position);
 
-                String phoPath = mContext.getResources().getString(R.string.fbphoto);
-                String photoID = phoPath.replaceAll("__photoID__", photo.getString("id"));
-
-                /*
-                JSONArray images = photo.getJSONArray("images");
-                JSONObject image = images.getJSONObject(0);
-                /**/
-
+                String phoPath = photo.getString("source");
                 ImageView thumb = (ImageView) list.findViewById(R.id.imageThumb);
                 Picasso.with(mContext)
-                        .load( photoID )
+                        .load( phoPath )
                         .placeholder(R.drawable.bg_stream)
                         .error(R.drawable.bg_stream)
                         .into(thumb);

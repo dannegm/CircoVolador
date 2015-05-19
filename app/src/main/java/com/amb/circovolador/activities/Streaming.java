@@ -13,7 +13,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.amb.circovolador.R;
-import com.amb.circovolador.Utils.Config;
 import com.amb.circovolador.Utils.Menu;
 import com.amb.circovolador.customViews.CustomVideoView;
 import com.loopj.android.http.AsyncHttpClient;
@@ -27,7 +26,6 @@ import org.json.JSONObject;
 public class Streaming extends Activity {
     Context ctx;
     Activity atx;
-    Config config;
     Menu menu;
 
     AsyncHttpClient client;
@@ -171,6 +169,9 @@ public class Streaming extends Activity {
     public void onBackPressed() {
         if (menu.isOpen()) {
             menu.close();
+        } else {
+            super.onBackPressed();
+            atx.overridePendingTransition(R.animator.transition_in, R.animator.transition_out);
         }
     }
 }

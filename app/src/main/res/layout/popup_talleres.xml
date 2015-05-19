@@ -60,26 +60,6 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:text="$30.00 por inscripción y pago de credencial."
-                        android:textColor="@color/c_white"
-                        android:textSize="14sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="4dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:text="• "
-                        android:textColor="@color/c_white"
-                        android:textSize="16sp" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
                         android:text="Traer dos fotos tamaño infantil, color o blanco y negro."
                         android:textColor="@color/c_white"
                         android:textSize="14sp" />
@@ -121,26 +101,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:text="Que haya cupo en el taller y/o grupo seleccionado."
-                        android:textColor="@color/c_white"
-                        android:textSize="14sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="4dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:text="• "
-                        android:textColor="@color/c_white"
-                        android:textSize="16sp" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:text="Diseño Gráfico Básico sólo acepta seis alumnos por grupo."
                         android:textColor="@color/c_white"
                         android:textSize="14sp" />
                 </LinearLayout>

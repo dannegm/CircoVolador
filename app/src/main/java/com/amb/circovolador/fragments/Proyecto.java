@@ -46,16 +46,6 @@ public class Proyecto extends Fragment {
         try {
             JSONObject proyect = data.getJSONObject(position);
 
-            String photoPath = ctx.getResources().getString(R.string.fbphoto);
-            String photoID = photoPath.replaceAll("__photoID__", proyect.getString("cover_photo"));
-
-            ImageView proyectCover = (ImageView) layout.findViewById(R.id.proyectCover);
-            Picasso.with(ctx)
-                    .load( photoID )
-                    .placeholder(R.drawable.bg_stream)
-                    .error(R.drawable.bg_stream)
-                    .into(proyectCover);
-
             Typeface sixcaps = Typeface.createFromAsset(ctx.getAssets(), "fonts/sixcaps.ttf");
             Typeface varelaround = Typeface.createFromAsset(ctx.getAssets(), "fonts/varelaround_regular.ttf");
 
@@ -67,8 +57,16 @@ public class Proyecto extends Fragment {
             proyectDescription.setText(proyect.getString("description"));
             proyectDescription.setTypeface(varelaround);
 
-
             JSONArray photos = proyect.getJSONObject("photos").getJSONArray("data");
+
+            String photoPath = photos.getJSONObject(0).getString("source");
+            ImageView proyectCover = (ImageView) layout.findViewById(R.id.proyectCover);
+            Picasso.with(ctx)
+                    .load( photoPath )
+                    .placeholder(R.drawable.bg_stream)
+                    .error(R.drawable.bg_stream)
+                    .into(proyectCover);
+
             GridView listThumbs = (GridView) layout.findViewById(R.id.proyectPhotos);
             ThumbPicture thumbs = new ThumbPicture(ctx, photos);
             listThumbs.setAdapter(thumbs);

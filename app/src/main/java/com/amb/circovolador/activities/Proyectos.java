@@ -120,6 +120,9 @@ public class Proyectos extends FragmentActivity {
     public void onBackPressed() {
         if (menu.isOpen()) {
             menu.close();
+        } else {
+            super.onBackPressed();
+            atx.overridePendingTransition(R.animator.transition_in, R.animator.transition_out);
         }
     }
 
@@ -131,6 +134,8 @@ public class Proyectos extends FragmentActivity {
             super(fm);
             superCtx = _ctx;
             this.data = _data;
+
+            Log.i("[JSON]", _data.toString());
         }
         public Fragment getItem (int position) {
             Proyecto proyect = new Proyecto (superCtx, position, data);

@@ -4,8 +4,6 @@ import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -22,9 +20,6 @@ import com.nineoldandroids.animation.Animator;
 
 import in.championswimmer.sfg.lib.SimpleFingerGestures;
 
-/**
- * Created by ambmultimedia on 28/04/15.
- */
 public class Menu {
     Context ctx;
     Activity atx;
