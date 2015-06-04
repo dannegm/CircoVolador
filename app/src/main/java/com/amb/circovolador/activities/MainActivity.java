@@ -27,7 +27,7 @@ public class MainActivity extends Activity {
         TextView cvtxt = (TextView) findViewById(R.id.cvtxt);
         cvtxt.setTypeface(varelaround);
 
-        actx = Eventos.class;
+        actx = Streaming.class;
         start();
     }
     @Override

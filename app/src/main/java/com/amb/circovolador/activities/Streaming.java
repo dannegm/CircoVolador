@@ -3,10 +3,12 @@ package com.amb.circovolador.activities;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Typeface;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -22,6 +24,8 @@ import com.skyfishjy.library.RippleBackground;
 import org.apache.http.Header;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.io.IOException;
 
 public class Streaming extends Activity {
     Context ctx;
@@ -71,7 +75,7 @@ public class Streaming extends Activity {
                 try {
                     JSONObject radio = response.getJSONObject("radio");
                     Uri stream = Uri.parse(radio.getString("rtsp"));
-                    makeStream(stream);
+                    makeStream2(stream);
                 } catch (JSONException e) {
                 }
             }
@@ -87,6 +91,37 @@ public class Streaming extends Activity {
         View touchListener = findViewById(R.id.touchListener);
         menu = new Menu(this, this, touchListener);
         menu.Navigation();
+    }
+
+    public void makeStream2 (final Uri stream) {
+        final MediaPlayer playerT = new MediaPlayer();
+        rippleBackground = (RippleBackground) findViewById(R.id.wireSound);
+
+        Log.i("Stream URI", stream.toString());
+
+        try {
+            playerT.setDataSource(ctx, stream);
+            playerT.prepareAsync();
+            playerT.setAudioStreamType(AudioManager.STREAM_MUSIC);
+
+            playPause = (ImageView) findViewById(R.id.btnPlayPause);
+            playPause.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (!playerT.isPlaying()) {
+                        playerT.start();
+                        rippleBackground.startRippleAnimation();
+                        playPause.setImageDrawable(getResources().getDrawable(R.drawable.btn_pause));
+                    } else {
+                        playerT.pause();
+                        rippleBackground.stopRippleAnimation();
+                        playPause.setImageDrawable(getResources().getDrawable(R.drawable.btn_play));
+                    }
+                }
+            });
+        } catch (IOException e) {
+            Toast.makeText(ctx, e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void makeStream (Uri stream) {
